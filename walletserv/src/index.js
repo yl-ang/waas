@@ -70,6 +70,8 @@ app.delete("/wallet/:id", (req, res) => {
   res.status(204).send();
 });
 
+//Todo: implement PATCH/PUT endpoint to update wallet fields
+
 app.listen(3000, () =>
   console.log('Wallet backend listening on port 3000'),
 );
