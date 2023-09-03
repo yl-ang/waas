@@ -50,6 +50,26 @@ app.get("/wallet/:id", (req, res) => {
   res.json(foundWallet);
 })
 
+app.delete("/wallet/:id", (req, res) => {
+  const id = req.params.id;
+
+  if (!id) {
+    return res.status(400).json({ error: "Missing user id field" });
+  }
+
+  // Find the index of the wallet with the matching user_id
+  const index = walletObjects.findIndex(wallet => wallet.user_id === parseInt(id));
+
+  if (index === -1) {
+    return res.status(404).json({ error: "Wallet not found" });
+  }
+
+  // Remove the wallet at the found index
+  walletObjects.splice(index, 1);
+
+  res.status(204).send();
+});
+
 app.listen(3000, () =>
   console.log('Wallet backend listening on port 3000'),
 );
