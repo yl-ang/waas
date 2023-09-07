@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 
 import router from './routes/index.js';
 
@@ -13,24 +14,27 @@ const allowedOrigins = [
 // only allows requests coming in from allowed origins
 app.use(
   cors({
-    credentials: true,
+    origin: '*'
+    // credentials: true,
     // origin: true,
-    origin: function (origin, callback) {
-      console.log(origin);
-      console.log({ origin });
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg =
-          'The CORS policy for this site does not ' +
-          'allow access from the specified Origin.';
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    }
+    // origin: function (origin, callback) {
+    //   console.log(origin);
+    //   console.log({ origin });
+    //   if (!origin) return callback(null, true);
+    //   if (allowedOrigins.indexOf(origin) === -1) {
+    //     const msg =
+    //       'The CORS policy for this site does not ' +
+    //       'allow access from the specified Origin.';
+    //     return callback(new Error(msg), false);
+    //   }
+    //   return callback(null, true);
+    // }
   })
 );
-
-app.use(express.json());
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/service-status', (_, res) => {
   res.json({
