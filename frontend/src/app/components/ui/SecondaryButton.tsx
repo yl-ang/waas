@@ -6,9 +6,10 @@ type Props = {
   loading: boolean;
   disabled: boolean; // true for disabled
   width: string;
+  logo: React.ReactNode;
 };
 
-const PrimaryButton: React.FC<Props> = ({ handler, loading, children, disabled, width }) => {
+const SecondaryButton: React.FC<Props> = ({ handler, loading, children, disabled, width, logo }) => {
   const widthClass = `w-${width}`;
 
   return (
@@ -25,11 +26,12 @@ const PrimaryButton: React.FC<Props> = ({ handler, loading, children, disabled, 
       <span
         className={`absolute inset-0 w-full h-full bg-white group-hover:bg-[#bebebe] ${disabled ? 'opacity-80' : ''}`}
       ></span>
-      <span className="relative text-black">
-        {children}
-      </span>
+      <div className="relative text-black flex items-center justify-start">
+        <div className="mr-2">{logo}</div>
+        <div className="flex-1 text-center">{children}</div>
+      </div>
     </button>
   );
 };
 
-export default PrimaryButton;
+export default SecondaryButton;

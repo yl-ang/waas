@@ -1,9 +1,11 @@
 import Image from 'next/image'
-import Navbar from './components/common/Navbar'
+import Navbar from './components/common/LandingNavbar'
 import FaqSection from './components/landing/Faq'
 import { Footer } from './components/landing/Footer'
 
 export default function Home() {
+
+  
   return (
     <div className="h-screen flex flex-col">
       <Navbar />
