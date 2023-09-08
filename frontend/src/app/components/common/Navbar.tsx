@@ -3,11 +3,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import React, {useState} from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function Navbar() {
-    const navItemStyle: string = "sm:text-sm md:text-base font-normal sm:px-2 md:px-3 active:bg-white/10 transition border-transparent border hover:border hover:transition hover:border-white/20 hover:mx-2 rounded-full px-4 py-2.5 mx-2"
-    const burgerItemStyle: string = "text-center text-2xl font-light tracking-wide active:bg-white/10 transition border-transparent border hover:border hover:transition hover:border-white/20 px-7 rounded-full py-5"
+    const navItemStyle: string = "sm:text-sm md:text-base font-normal sm:px-2 md:px-3 active:bg-white/10 transition border-transparent border hover:border hover:transition hover:border-white/20 hover:mx-2 rounded-md px-4 py-2.5 mx-2"
+    const burgerItemStyle: string = "text-center text-2xl font-light tracking-wide active:bg-white/10 transition border-transparent border hover:border hover:transition hover:border-white/20 px-7 rounded-md py-5"
     const [backdropMenu, setBackdropMenu] = useState<boolean>(false)
+    const router = useRouter();
+    const pathname = usePathname();
 
  
 
@@ -18,10 +21,10 @@ export default function Navbar() {
 
     return (
         <div>
-            <nav className="relative flex justify-between sm:py-5 lg:py-7 xs:h-24 sm:h-fit bg-blue-900 w-screen">
+            <nav className="relative flex justify-between sm:py-5 xs:h-24 sm:h-fit bg-black w-screen">
                 <div className='lg:flex sm:flex-column sm:justify-center md:justify-start'>
-                    <div className='w-screen md:flex-column lg:flex items-center text-white font-Hind tracking-wide'>
-                        <div className='sm:w-screen sm:flex sm:justify-center lg:w-60'>
+                    <div className='w-screen md:flex-column lg:flex items-center text-white font-Hind tracking-wide lg:px-64 px-0'>
+                        <div className='sm:w-screen sm:flex sm:justify-center lg:w-20'>
                             <Link href="/" className="">
                                 <Image
                                     src="/logo.png"
@@ -35,23 +38,18 @@ export default function Navbar() {
 
                         <div id="navbar-menu" className='xs:hidden sm:flex xs:ml-0 lg:ml-16 w-screen xs:justify-center lg:justify-between'>
                             <div className='flex items-center justify-start'>
-                                <Link href="/" className='sm:text-sm md:text-base font-normal mr-2 bg-white text-blue-900 px-5 font-semibold border-2 border-white rounded-full py-2'>
-                                    Pay/Request
-                                </Link>
-                                <Link href="/" className={navItemStyle}>
+                                <Link href="/dashboard" className={`sm:text-sm md:text-base font-normal mr-2 ${pathname === '/dashboard' ? 'bg-[#ff0050] ' : ''} px-5 font-semibold rounded-md py-2`}>
                                     Home
                                 </Link>
-                                <Link href="/" className={`text-center ${navItemStyle}`}>
-                                    My Transactions
+                                <Link href="/activities" className={`sm:text-sm md:text-base font-normal mr-2 ${pathname === '/activities' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
+                                    Activity
                                 </Link>
-                                <Link href="/" className="px-3 active:bg-white/10 transition border-transparent border hover:border hover:transition hover:border-white/20 hover:mx-2 rounded-full px-4 py-2.5 mx-2">
+                                <Link href="/pay" className={`sm:text-sm md:text-base font-normal mr-2 ${pathname === '/pay' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
                                     <div className='flex items-center'>
-                                        <h2 className='sm:text-sm md:text-base tracking-wide text-white'>Balance</h2>
+                                        <h2 className='sm:text-sm md:text-base tracking-wid'>Pay</h2>
                                     </div>
                                 </Link>
-                                <Link href="/about" className={navItemStyle}>
-                                    About
-                                </Link>
+
                             </div>
                             <div className='flex ml-4 items-center xs:mr-0 lg:mr-0'>
                                 <Link href="/">
@@ -67,8 +65,8 @@ export default function Navbar() {
                                         unreadBell
                                         ?
                                         <span className="absolute lg:top-9 lg:right-20 h-2.5 w-2.5 mr-4">
-                                            <span className="animate-ping absolute sm:-top-6 sm:-right-3 md:-top-6 md:-right-3 lg:top-2 lg:right-0 inline-flex h-2.5 w-2.5 rounded-full bg-sky-400 opacity-75"></span>
-                                            <span className="absolute sm:-top-6 sm:-right-3 md:-top-6 md:-right-3 lg:top-2 lg:right-0 inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
+                                            <span className="animate-ping absolute sm:-top-6 sm:-right-3 md:-top-6 md:-right-3 lg:top-2 lg:right-0 inline-flex h-2.5 w-2.5 rounded-md bg-sky-400 opacity-75"></span>
+                                            <span className="absolute sm:-top-6 sm:-right-3 md:-top-6 md:-right-3 lg:top-2 lg:right-0 inline-flex rounded-md h-2.5 w-2.5 bg-sky-500"></span>
                                         </span>
                                         :
                                         <div></div>
@@ -91,7 +89,7 @@ export default function Navbar() {
                                             width={25}
                                             height={25}
                                             alt="user icon"
-                                            className='w-10 h-10 rounded-full mr-8 cursor-pointer'
+                                            className='w-10 h-10 rounded-md mr-8 cursor-pointer'
                                             /> 
                                     </Link> 
                                 )} */}
@@ -125,22 +123,16 @@ export default function Navbar() {
             </nav>
             {
                 backdropMenu ?
-                <div id="backdrop-menu" className='xs:absolute sm:hidden z-10 opacity-95 bg-blue-900 w-screen h-screen'>
+                <div id="backdrop-menu" className='xs:absolute sm:hidden z-10 opacity-95 bg-black w-screen h-screen'>
                     <div className='font-Hind pt-4 flex-col flex text-white items-center justify-center'>
-                        <Link href="/" onClick={backdropToggle} className='my-4 text-xl font-normal bg-white text-blue-900 px-5 font-semibold border-2 border-white rounded-full py-2'>
+                        <Link href="/dashboard" onClick={backdropToggle} className={`my-4 text-xl font-normal  ${pathname === '/dashboard' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
                             Pay/Request
                         </Link>
-                        <Link href="/" onClick={backdropToggle} className={burgerItemStyle}>
-                            Home
+                        <Link href="/activities" onClick={backdropToggle} className={`my-4 text-xl font-normal  ${pathname === '/activities' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
+                            Activity
                         </Link>
-                        <Link href="/" onClick={backdropToggle} className={`text-center ${burgerItemStyle}`}>
-                            My Transactions
-                        </Link>
-                        <Link href="/"onClick={backdropToggle} className={burgerItemStyle}>
-                                Balance
-                        </Link>
-                        <Link href="/about" onClick={backdropToggle} className={burgerItemStyle}>
-                            About
+                        <Link href="/pay" onClick={backdropToggle} className={`my-4 text-xl font-normal  ${pathname === '/pay' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
+                                Pay
                         </Link>
                         <div className='flex w-screen justify-center items-center mt-4'>
                                 <Link href="/"

@@ -96,7 +96,7 @@ const LandingNavbar = () => {
               <span className="text-gray-800 px-3 py-2">Contact</span>
             </Clickable>
           </div>
-          <div className="hidden md:block w-[30%]">
+          <div className="hidden md:flex justify-end w-full">
             <PrimaryButton
               handler={toggleModal}
               loading={false}
@@ -110,12 +110,12 @@ const LandingNavbar = () => {
 
         <Modal isOpen={isModalOpen} onClose={toggleModal} footer={
         <>
-          <p className="text-[10px] font-extralight px-16 text-gray-400 pb-3">
+          <p className="text-[10px] font-extralight px-16 text-gray-400 pb-3 hidden sm:block">
             By continuing, you agree to TikTok’s <a href="https://www.tiktok.com/legal/terms-of-use?lang=en" className="text-gray-600 hover:underline">
               Terms of Service</a> and confirm that you have read TikTok’s <a href="https://www.tiktok.com/legal/privacy-policy?lang=en" className="text-gray-600 hover:underline">Privacy Policy</a>.
           </p>
           <hr></hr>
-          <div className="flex flex-row justify-center space-x-2 pt-3">
+          <div className="flex flex-row justify-center space-x-2 pt-3 text-sm sm:text-md">
             <p>Don't have an account?</p> 
             <a href="/signup" className="text-[#ff0050]">Sign up</a>
           </div>

@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, footer }) => {
 
   return (
     <div className="fixed inset-0 flex text-center items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white flex flex-col justify-between shadow-lg rounded-lg pb-3 px-3 pt-0 md:w-[500px] md:h-[700px] w-[60%] h-[55%]">
+      <div className="bg-white flex flex-col justify-between shadow-lg rounded-lg pb-3 px-3 pt-0 md:w-[500px] md:h-[700px] w-[90%] h-[55%]">
         <div>
             <div className='flex justify-end pt-2'>
                 <AiOutlineClose onClick={onClose} className="cursor-pointer w-11 h-11 bg-gray-200 rounded-full p-3"></AiOutlineClose>
