@@ -1,14 +1,14 @@
 import Image from 'next/image'
-import Navbar from './components/common/LandingNavbar'
 import FaqSection from './components/landing/Faq'
 import { Footer } from './components/landing/Footer'
+import LandingNavbar from './components/common/LandingNavbar'
 
 export default function Home() {
 
   
   return (
     <div className="h-screen flex flex-col">
-      <Navbar />
+      <LandingNavbar />
       <main className="flex-grow flex flex-col space-y-4 justify-around">
 
         <section className="bg-[#ff0050] py-16">

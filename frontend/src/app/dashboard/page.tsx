@@ -10,9 +10,11 @@ import { formatAsMoney } from "../../../utils/fomatters";
 import { useEffect, useState } from "react";
 import TransactionHistory from "../components/dashboard/TransactionHistory";
 import { AiFillBank } from 'react-icons/ai';
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
   const [money, setMoney] = useState<number>(0);
+  const router = useRouter();
   
   useEffect(() => {
     // const apiUrl = "https://api.example.com/get-money"; 
@@ -38,11 +40,11 @@ export default function Dashboard() {
 
 
   const handlePayClick = () => {
-    // Handle pay button click
+    router.push(`/payments/pay`)  ;
   };
 
   const handleRequestClick = () => {
-    // Handle request button click
+    router.push(`/payments/request`)
   };
 
   return (
