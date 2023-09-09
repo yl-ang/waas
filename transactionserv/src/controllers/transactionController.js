@@ -1,4 +1,5 @@
 import Transaction from '../models/Transaction.js';
+import axios from 'axios';
 
 // Create a new transaction
 const createTransaction = async (req, res) => {
@@ -14,6 +15,14 @@ const createTransaction = async (req, res) => {
     } = req.body;
 
     // Validate the request body here if needed
+
+    axios.get('http://localhost:8000/wallet/' + source_wallet_id).then(
+      function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+      console.log(error);
+    });
 
     const transaction = await Transaction.create({
       user_id,
