@@ -6,7 +6,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://user:pass@postgres:5432/db
+      DATABASE_URL: postgres://user:pass@postgres:5432/waas
       NODE_ENV: development
       PORT: 8000
     ports:

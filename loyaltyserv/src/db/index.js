@@ -1,11 +1,20 @@
-import pg from 'pg';
+import { Sequelize } from 'sequelize';
 
-const pool = new pg.Pool({
-  user: 'user',
-  host: 'localhost',
-  database: 'waas',
-  password: 'pass',
-  port: 35432
-});
+const databaseUrl = process.env.DATABASE_URL;
 
-export default pool;
+console.log('databaseUrl: ' + databaseUrl);
+
+// Create and configure your Sequelize instance
+const sequelize = new Sequelize(databaseUrl);
+
+try {
+  await sequelize.authenticate();
+  console.log(
+    `DB Connection to ${databaseUrl} has been established successfully`
+  );
+} catch (error) {
+  console.error(`Unable to connect to the database ${databaseUrl}:`, error);
+}
+
+// Export the Sequelize instance
+export { sequelize };
