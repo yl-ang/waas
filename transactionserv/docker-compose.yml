@@ -1,0 +1,28 @@
+version: "3"
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://user:pass@postgres:5432/waas2
+      NODE_ENV: development
+      PORT: 8001
+    ports:
+      - "8001:8001"
+    command: npm run dev
+    volumes:
+      - .:/app/
+      - /app/node_modules
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "35433:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: waas2
+    volumes:
+      - ./sql/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./sql/02_fill_table.sql:/docker-entrypoint-initdb.d/02_fill_table.sql
