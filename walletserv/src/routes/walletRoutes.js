@@ -1,5 +1,5 @@
 import express from 'express';
-import { createWallet, getWalletByUserId }from '../controllers/walletController.js';
+import { createWallet, getWalletByUserId, deleteWalletById }from '../controllers/walletController.js';
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.get('/:id', getWalletByUserId);
 // // Update wallet by wallet id
 // router.put('/:wallet_id', updateWallet);
 
-// // Delete a transaction by wallet id
-// router.delete('/:wallet_id', deleteTransaction);
+// Delete a transaction by wallet id
+router.delete('/:id', deleteWalletById);
 
 export default router;
