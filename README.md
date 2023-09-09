@@ -29,7 +29,7 @@ Wallet As A Service for TikTok Hackathon 2023
     <a href="https://github.com/yl-ang/waas"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/">View Video Demo</a>
+    <a href="https://www.youtube.com/watch?v=tCh1siGGsVQ">View Video Demo</a>
     ·
     <a href="https://demo.com">Try Demo</a>
     ·
@@ -171,13 +171,13 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Contact
 
-Bobby Ang- [Linkedin]()
+Bobby Ang- [Linkedin](https://www.linkedin.com/in/yongliangang/)
 
 Jason Yap - [Linkedin](https://www.linkedin.com/in/ja-sony/)
 
-Dominic Lim - [LinkedIn]()
+Dominic Lim - [LinkedIn](https://www.linkedin.com/in/dominiclimkj/)
 
-Jerome Wong - [LinkedIn]()
+Jerome Wong - [LinkedIn](https://www.linkedin.com/in/jeromewongjiajin/)
 
 
 Project Link: [GitHub](https://github.com/yl-ang/waas)
