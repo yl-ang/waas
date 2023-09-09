@@ -1,14 +1,11 @@
 import { Sequelize } from 'sequelize';
 
+const databaseUrl = process.env.DATABASE_URL;
+
+console.log("databaseUrl: " + databaseUrl);
+
 // Create and configure your Sequelize instance
-const sequelize = new Sequelize({
-  // Your database configuration here
-  dialect: 'postgres',
-  host: 'your-host',
-  username: 'your-username',
-  password: 'your-password',
-  database: 'your-database',
-});
+const sequelize = new Sequelize(databaseUrl);
 
 // Export the Sequelize instance
 export { sequelize };

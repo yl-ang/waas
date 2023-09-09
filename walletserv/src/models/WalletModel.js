@@ -14,7 +14,7 @@ WalletModel.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        balanace : {
+        balance : {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -30,7 +30,7 @@ WalletModel.init(
     {
         sequelize,
         modelName: 'WalletModel',
-        tableName: 'wallet',
+        tableName: 'wallets',
         timestamps: false, // Disable timestamps (created_at and updated_at)
     }
 );
