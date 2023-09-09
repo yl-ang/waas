@@ -5,7 +5,7 @@ class Loyalty extends Model {}
 
 Loyalty.init(
   {
-    userId: {
+    user_id: {
       type: DataTypes.STRING,
       allowNull: false
     },
