@@ -29,7 +29,7 @@ Wallet As A Service for TikTok Hackathon 2023
     <a href="https://github.com/yl-ang/waas"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/">View Video Demo</a>
+    <a href="https://www.youtube.com/watch?v=tCh1siGGsVQ">View Video Demo</a>
     ·
     <a href="https://demo.com">Try Demo</a>
     ·
