@@ -7,10 +7,6 @@ const createWallet = async (req, res) => {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    const wallets = await WalletModel.findAll({
-        where: { user_id },
-    });
-
     try {
       // Check if a wallet with the same user_id already exists
       const existingWallet = await WalletModel.findOne({
@@ -47,7 +43,6 @@ const getWalletByUserId = async (req, res) => {
   }
 
   try {
-    // Check if a wallet with the same user_id already exists
     const existingWallet = await WalletModel.findOne({
       where: { user_id },
     });
@@ -56,7 +51,9 @@ const getWalletByUserId = async (req, res) => {
       return res.status(400).json({ error: "No wallet for the user id" });
     }
 
-    return existingWallet;
+    console.log("Retrieved wallet : " + existingWallet);
+
+    return res.status(201).json(existingWallet);
 
   }  catch (error) {
     console.error("Error finding wallet:", error);
