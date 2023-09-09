@@ -4,19 +4,19 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import PageLayout from '../../components/common/PageLayout';
-import PaymentForm from '../../components/payments/PaymentForm';
 import PrimaryButton from '@/app/components/ui/PrimaryButton';
-import { Router } from 'next/router';
+import ContactList from '@/app/components/payments/ContactsList';
+import { contacts } from '../../../../utils/constants';
 
 export default function Dashboard() {
   const router = useRouter();
 
-  const handlePaymentSubmit = (amount: number, recipient: string, type: 'send' | 'request') => {
-    // Handle payment submission here based on the type (send or request).
+  const handleContactSelect = (contactId: number) => {
+    router.push(`preview/request/${contactId}`);
   };
 
   return (
-    <PageLayout title="Request Payment">
+    <PageLayout title="Send Payment">
       <div className="flex flex-col pt-3">
         <div className="flex space-x-4">
           <PrimaryButton
@@ -39,7 +39,7 @@ export default function Dashboard() {
           </PrimaryButton>
         </div>
         <div className="mt-6">
-          <PaymentForm onSubmit={handlePaymentSubmit} />
+          <ContactList onContactSelect={handleContactSelect} contacts={contacts} />
         </div>
       </div>
     </PageLayout>

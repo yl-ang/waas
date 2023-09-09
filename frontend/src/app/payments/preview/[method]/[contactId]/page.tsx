@@ -45,10 +45,8 @@ export default function PaymentPreview() {
   return (
     <PageLayout title="Payment Preview">
       <div className="flex flex-col pt-3">
-        <Card title={'Contact Details'}>
-          <h2>Contact Details</h2>
-            <p>Name: {selectedContact?.name}</p>
-            <PaymentForm paymentType={params.method} onSubmit={handlePaymentSubmit} />
+        <Card title={''}>
+            <PaymentForm paymentType={params.method} onSubmit={handlePaymentSubmit} contact={selectedContact}/>
         </Card>
       </div>
     </PageLayout>

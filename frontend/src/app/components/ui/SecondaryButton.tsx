@@ -21,6 +21,7 @@ const SecondaryButton: React.FC<Props> = ({ handler, loading, children, disabled
           : 'hover:bg-[#bebebe]'} 
         bg-white`}
       onClick={handler}
+      type='button'
       disabled={disabled || loading}
     >
       <span
