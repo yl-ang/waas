@@ -32,7 +32,7 @@ const createLoyalty = async (req, res, _) => {
 };
 
 const getLoyalty = async (req, res, _) => {
-  const user_id = req.query.user_id;
+  const user_id = req.params.user_id;
 
   if (!user_id) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -61,7 +61,7 @@ const getLoyalty = async (req, res, _) => {
  * Value can be positive or negative.
  */
 const updateLoyalty = async (req, res, _) => {
-  const user_id = req.query.user_id;
+  const user_id = req.params.user_id;
 
   if (!user_id) {
     return res.status(400).json({ error: 'Missing required fields' });
