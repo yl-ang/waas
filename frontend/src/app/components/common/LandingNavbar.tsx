@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import PrimaryButton from "../ui/PrimaryButton";
 import SecondaryButton from "../ui/SecondaryButton";
 
-import { AiOutlineQrcode, AiOutlineUser, AiFillInstagram, AiFillApple } from 'react-icons/ai';
-import { FaTiktok } from 'react-icons/fa';
+import { AiOutlineQrcode, AiFillInstagram, AiFillApple } from 'react-icons/ai';
+import { FaTiktok, FaUserAlt } from 'react-icons/fa';
 import { BsFacebook } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import Modal from "./Modal";
@@ -137,7 +137,7 @@ const LandingNavbar = () => {
               loading={false}
               disabled={false}
               width={'full'} 
-              logo={<AiOutlineUser  className="w-4 h-4" />}            
+              logo={<FaUserAlt  className="w-4 h-4" />}            
               >
                 Use phone / email / username
             </SecondaryButton>

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
 interface PaymentFormProps {
-  onSubmit: (amount: number, recipient: string, type: 'send' | 'request') => void;
+  onSubmit: (amount: number, recipient: string) => void;
+  paymentType: string | string[];
 }
 
-const PaymentForm: React.FC<PaymentFormProps> = ({ onSubmit }) => {
+const PaymentForm: React.FC<PaymentFormProps> = ({ onSubmit, paymentType }) => {
   const [amount, setAmount] = useState<number>(0);
   const [recipient, setRecipient] = useState<string>('');
-  const [paymentType, setPaymentType] = useState<'send' | 'request'>('send');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(amount, recipient, paymentType);
+    onSubmit(amount, recipient);
   };
 
   return (
@@ -42,20 +42,12 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ onSubmit }) => {
       </div>
       <div className="mb-4">
         <label className="block text-gray-600">Payment Type:</label>
-        <select
-          value={paymentType}
-          onChange={(e) => setPaymentType(e.target.value as 'send' | 'request')}
-          className="w-full p-2 border rounded-md"
-        >
-          <option value="send">Send Payment</option>
-          <option value="request">Request Payment</option>
-        </select>
       </div>
       <button
         type="submit"
         className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
       >
-        {paymentType === 'send' ? 'Send' : 'Request'}
+        {paymentType === 'pay' ? 'Pay' : 'Request'}
       </button>
     </form>
   );
