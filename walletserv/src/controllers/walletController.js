@@ -36,7 +36,7 @@ const createWallet = async (req, res) => {
 
 const getWalletByUserId = async (req, res) => {
   
-  const user_id = req.params.id;
+  const user_id = req.params.userId;
 
   if (!user_id) {
     return res.status(400).json({error: "Missing user id field"});
@@ -62,9 +62,36 @@ const getWalletByUserId = async (req, res) => {
 
 }
 
-const deleteWalletById = async (req, res) => {
+const updateWalletByUserId = async (req, res) => {
+  const user_id = req.params.userId;
+
+  if (!user_id) {
+    return res.status(400).json({error: "Missing user id field"});
+  }
+
+  // You can access the updated wallet data from req.body
+  const updatedData = req.body;
+
+  try {
+    // Find the wallet by user_id and update it
+    const [updatedCount] = await WalletModel.update(updatedData, {
+      where: { user_id },
+    });
+
+    if (updatedCount === 0) {
+      return res.status(404).json({ error: "Wallet not updated" });
+    }
+
+    return res.status(200).json({ message: "Wallet updated successfully" });
+  } catch (error) {
+    console.error("Error updating wallet:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+const deleteWalletByUserId = async (req, res) => {
   
-  const user_id = req.params.id;
+  const user_id = req.params.userId;
 
   if (!user_id) {
     return res.status(400).json({error: "Missing user id field"});
@@ -87,4 +114,4 @@ const deleteWalletById = async (req, res) => {
 
 }
 
-export {createWallet, getWalletByUserId, deleteWalletById};
+export {createWallet, getWalletByUserId, updateWalletByUserId, deleteWalletByUserId};
