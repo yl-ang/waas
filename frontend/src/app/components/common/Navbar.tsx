@@ -23,7 +23,7 @@ export default function Navbar() {
         <div>
             <nav className="relative flex justify-between sm:py-5 xs:h-24 sm:h-fit bg-black w-screen">
                 <div className='lg:flex sm:flex-column sm:justify-center md:justify-start'>
-                    <div className='w-screen md:flex-column lg:flex items-center text-white font-Hind tracking-wide lg:px-64 px-0'>
+                    <div className='w-screen sm:flex-column lg:flex items-center text-white lg:px-64 md:px-20 px-4'>
                         <div className='sm:w-screen sm:flex sm:justify-center lg:w-20'>
                             <Link href="/" className="">
                                 <Image
@@ -36,7 +36,7 @@ export default function Navbar() {
                             </Link>
                         </div>
 
-                        <div id="navbar-menu" className='xs:hidden sm:flex xs:ml-0 lg:ml-16 w-screen xs:justify-center lg:justify-between'>
+                        <div id="navbar-menu" className='xs:hidden xs:ml-0 lg:ml-16 w-screen xs:justify-center lg:justify-between hidden sm:flex'>
                             <div className='flex items-center justify-start'>
                                 <Link href="/dashboard" className={`sm:text-sm md:text-base font-normal mr-2 ${pathname === '/dashboard' ? 'bg-[#ff0050] ' : ''} px-5 font-semibold rounded-md py-2`}>
                                     Home
@@ -44,9 +44,9 @@ export default function Navbar() {
                                 <Link href="/activities" className={`sm:text-sm md:text-base font-normal mr-2 ${pathname === '/activities' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
                                     Activity
                                 </Link>
-                                <Link href="/pay" className={`sm:text-sm md:text-base font-normal mr-2 ${pathname === '/pay' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
+                                <Link href="/payments/pay" className={`sm:text-sm md:text-base font-normal mr-2 ${pathname === '/payments/pay' || pathname === '/payments/request' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
                                     <div className='flex items-center'>
-                                        <h2 className='sm:text-sm md:text-base tracking-wid'>Pay</h2>
+                                        <h2 className='sm:text-sm md:text-base tracking-wid'>Payments</h2>
                                     </div>
                                 </Link>
 
@@ -126,13 +126,13 @@ export default function Navbar() {
                 <div id="backdrop-menu" className='xs:absolute sm:hidden z-10 opacity-95 bg-black w-screen h-screen'>
                     <div className='font-Hind pt-4 flex-col flex text-white items-center justify-center'>
                         <Link href="/dashboard" onClick={backdropToggle} className={`my-4 text-xl font-normal  ${pathname === '/dashboard' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
-                            Pay/Request
+                            Home
                         </Link>
                         <Link href="/activities" onClick={backdropToggle} className={`my-4 text-xl font-normal  ${pathname === '/activities' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
                             Activity
                         </Link>
-                        <Link href="/pay" onClick={backdropToggle} className={`my-4 text-xl font-normal  ${pathname === '/pay' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
-                                Pay
+                        <Link href="/payments/pay" onClick={backdropToggle} className={`my-4 text-xl font-normal  ${pathname === '/payments/pay' || pathname === '/payments/request' ? 'bg-[#ff0050]' : ''} px-5 font-semibold rounded-md py-2`}>
+                            Payments
                         </Link>
                         <div className='flex w-screen justify-center items-center mt-4'>
                                 <Link href="/"

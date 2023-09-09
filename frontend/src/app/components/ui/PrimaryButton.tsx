@@ -6,15 +6,19 @@ type Props = {
   loading: boolean;
   disabled: boolean; // true for disabled
   width: string;
+  height: string;
 };
 
-const PrimaryButton: React.FC<Props> = ({ handler, loading, children, disabled, width }) => {
+const PrimaryButton: React.FC<Props> = ({ handler, loading, children, disabled, width, height }) => {
   const widthClass = `w-${width}`;
+  const heightClass = `h-${height}`;
+
 
   return (
     <button
-      className={`relative inline-block md:px-8 md:py-2 px-5 py-1 md:font-medium md:text-base text-xs group rounded-md
+      className={`relative inline-block md:px-8 md:py-2 px-5 py-1 md:font-medium md:text-base text-md group rounded-md
         ${widthClass} 
+        ${heightClass} 
         ${disabled 
           ? 'opacity-80 cursor-not-allowed' 
           : 'hover:bg-[#d10243]'} 

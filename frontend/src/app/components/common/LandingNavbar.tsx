@@ -102,6 +102,7 @@ const LandingNavbar = () => {
               loading={false}
               disabled={false}
               width={'1/2'}
+              height={'auto'}
             >
               Log in
             </PrimaryButton>
@@ -198,6 +199,7 @@ const LandingNavbar = () => {
                 loading={false}
                 disabled={false}
                 width={'full'}
+                height={'auto'}
               >
                 Log in
               </PrimaryButton>

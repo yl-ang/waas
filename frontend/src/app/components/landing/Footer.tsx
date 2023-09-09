@@ -16,10 +16,10 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <div className="relative" id={'footer'}>
+    <div className="md:relative flex" id={'footer'}>
       <Container>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          <div className="flex flex-row w-full h-full -mt-2 lg:ml-0">
+          <div className="flex md:flex-row flex-col w-full h-full -mt-2 lg:ml-0">
             {navigation.map((item, index) => (
               <Link key={index} href={hrefs[index]} passHref className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-gray-800 focus:text-gray-80 focus:bg-gray-100 focus:outline-none dark:focus:bg-trueGray-700">
                   {item}

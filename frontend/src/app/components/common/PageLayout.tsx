@@ -9,20 +9,20 @@ type Props = {
 
 const Page: React.FC<Props> = ({ title, children }) => {
   return (
-    <>
+    <div className="flex flex-col overflow-x-hidden">
       <Navbar />
-      <main>
-          <div className="flex bg-gray-100 flex-col lg:px-64 px-0">
-              <div className="flex flex-col w-[100%] md:h-[100%] bg-gray-100 py-4 pr-4 md:pl-5">
-                  <h1 className="text-center md:text-left font-bold text-3xl ">
-                      {title}
-                  </h1>
-                  {children}
-              </div>
-          </div>
-      </main>
-      <Footer />
-    </>
+      <div className="flex bg-gray-100 flex-col lg:px-72 md:px-20 px-4">
+        <div className="flex flex-col w-[100%] md:h-[100%] bg-gray-100 py-4">
+          <h1 className="text-center md:text-left font-bold text-3xl ">
+            {title}
+          </h1>
+          {children}
+        </div>
+      </div>
+      <div className="pb-48 sm:pb-0">
+        <Footer />
+      </div>
+    </div>
   );
 };
 
