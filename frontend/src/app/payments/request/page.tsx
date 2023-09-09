@@ -16,7 +16,7 @@ export default function Dashboard() {
   };
 
   return (
-    <PageLayout title="Send Payment">
+    <PageLayout title="Request Payment">
       <div className="flex flex-col pt-3">
         <div className="flex space-x-4">
           <PrimaryButton
